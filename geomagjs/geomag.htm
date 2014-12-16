@@ -54,7 +54,7 @@ function runTest() {
 		i,
 		testValues = (function (valueFile) {
 			var i,
-				lines = valueFile.replace(/\r/g, '').split('\n'),
+				lines = valueFile.replace(/\r/g, '').replace(/\n$/, '').split('\n'),
 				model = lines[0],
 				fields,
 				values = [];
