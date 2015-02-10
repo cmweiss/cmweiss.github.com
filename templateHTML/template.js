@@ -9,11 +9,11 @@ function loadTemplate() {
 		rightSide = document.createElement('div'),
 		bodyContents = document.createRange();
 
-	function sectionFetcher(url, destinationParent) {
+	function sectionFetcher(url, destinationParentId) {
 		var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function () {
 			if(xhr.readyState === 4) {
-				document.getElementById(destinationParent).innerHTML = xhr.responseText;
+				document.getElementById(destinationParentId).innerHTML = xhr.responseText;
 			}
 		}
 		xhr.open('GET', url);
@@ -26,10 +26,10 @@ function loadTemplate() {
 	footer.setAttribute('id', 'footer');
 	leftSide.setAttribute('id', 'leftside');
 	rightSide.setAttribute('id', 'rightside');
-	
+
 	bodyContents.setStart(body.firstChild, 0);
-	bodyContents.setEndBefore(body.getElementsByTagName('script')[0]);
-	
+	bodyContents.setEndBefore(body.getElementsById('init'));
+
 	content.appendChild(bodyContents.extractContents());
 	body.appendChild(content);
 	body.insertBefore(midsec, content);
