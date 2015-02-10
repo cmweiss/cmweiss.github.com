@@ -28,7 +28,7 @@ function loadTemplate() {
 	rightSide.setAttribute('id', 'rightside');
 
 	bodyContents.setStart(body.firstChild, 0);
-	bodyContents.setEndBefore(body.getElementsById('init'));
+	bodyContents.setEndBefore(body.getElementById('init'));
 
 	content.appendChild(bodyContents.extractContents());
 	body.appendChild(content);
