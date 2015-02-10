@@ -11,12 +11,13 @@ function loadTemplate() {
 
 	function sectionFetcher(url, destinationParent) {
 		var xhr = new XMLHttpRequest();
-		xhr.open('GET', url);
 		xhr.onreadystatechange = function () {
 			if(xhr.readyState === 4) {
 				document.getElementById(destinationParent).innerHTML = xhr.responseText;
 			}
 		}
+		xhr.open('GET', url);
+		xhr.send(null);
 	}
 
 	header.setAttribute('id', 'header');
